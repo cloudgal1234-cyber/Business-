@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light dark; }
+html, body { @apply bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100; }
+body { font-family: Heebo, Assistant, system-ui, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+
+@layer components {
+  .card { @apply rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:focus-visible:ring-offset-slate-900; }
+  .btn-primary { @apply btn bg-investor-600 text-white hover:bg-investor-700 focus-visible:ring-investor-500; }
+  .btn-coach { @apply btn bg-coach-600 text-white hover:bg-coach-700 focus-visible:ring-coach-500; }
+  .btn-ghost { @apply btn border border-slate-300 bg-white text-slate-700 hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800; }
+  .btn-soft-coach { @apply btn border border-coach-500/40 bg-coach-50 text-coach-700 hover:bg-coach-100 dark:bg-coach-900/40 dark:text-coach-100 dark:hover:bg-coach-900/70; }
+  .input { @apply w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-base outline-none transition placeholder:text-slate-400 focus:border-investor-500 focus:ring-2 focus:ring-investor-500/20 dark:border-slate-700 dark:bg-slate-950; }
+  .chip { @apply inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium; }
+  .section-title { @apply mb-2 text-sm font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400; }
+}
+
+/* LTR snippets (URLs, English terms) inside RTL text */
+.ltr { direction: ltr; unicode-bidi: isolate; }
+
+@media print {
+  header, .no-print { display: none !important; }
+  body { background: white !important; color: black !important; }
+  .card { box-shadow: none !important; border-color: #ddd !important; break-inside: avoid; }
+}
